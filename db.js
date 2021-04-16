@@ -20,8 +20,8 @@ module.exports = [
         image: 'temp'
     },
     {
-        name: 'temp',
-        breed: 'Temp Mix',
+        name: 'Fluffy',
+        breed: 'Poodle Mix',
         image: 'temp'
     },
 

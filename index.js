@@ -21,7 +21,11 @@ app.get('/', (req, res) => {
 });
 
 app.get('/dog-list', (req, res) => {
-    res.render('dog-list');
+    res.render('dog-list', {
+        locals: {
+            dogs: db,
+        },
+    });
 });
 
 server.listen(port, hostname, () => {
