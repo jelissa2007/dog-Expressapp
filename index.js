@@ -24,8 +24,27 @@ app.get('/dog-list', (req, res) => {
     res.render('dog-list', {
         locals: {
             dogs: db,
+            path: req.path,
         },
     });
+});
+
+app.get('/dog-list/:name', (req, res) => {
+    console.log(req.path);
+    const {name} = req.params;
+    console.log(name);
+    const dog = db.find((thisDog) => thisDog.name === name);
+    if (dog) {
+        console.log(dog);
+        res.render('dog.html', {
+            locals: {
+                dog
+            }
+        });
+    } else {
+        res.status(404)
+            .send(`No dog found with name '${name}'`);
+    }
 });
 
 server.listen(port, hostname, () => {
