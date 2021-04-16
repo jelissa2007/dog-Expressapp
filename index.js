@@ -14,12 +14,15 @@ app.set('views', 'templates');
 app.set('view engine', 'html');
 
 const server = http.createServer(app);
-const db = require('./db')
+const db = require('./db');
 
 app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
+    res.render('home');
+});
 
+app.get('/dog-list', (req, res) => {
+    res.render('dog-list');
+});
 
 server.listen(port, hostname, () => {
     console.log(`Server running at http://${hostname}:${port}`);
