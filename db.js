@@ -1,17 +1,17 @@
 module.exports = [
     {
-        name: 'Shane',
-        breed: 'Golden Mix',
+        name: 'Doodle',
+        breed: 'Black Lab Mix',
         image: 'temp'
     },
     {
-        name: 'Doodle',
+        name: 'Burrow',
         breed: 'Corgi Pit Mix ',
         image: 'temp'
     },
     {
         name: 'Ella',
-        breed: 'Shih Tzu Corgi Mix',
+        breed: 'Shih-Tzu Corgi Mix',
         image: 'temp'
     },
     {
