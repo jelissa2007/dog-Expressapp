@@ -11,7 +11,7 @@
 
     <ul>
       ${dogs.map(dog => `
-      <li>${dog.name}</li>
+      <li><a href="${path}/${dog.name}">${dog.name}</a></li>
       `).join('')}
     </ul>
   </body>
