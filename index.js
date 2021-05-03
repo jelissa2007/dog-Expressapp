@@ -17,7 +17,15 @@ const server = http.createServer(app);
 const db = require('./db');
 
 app.get('/', (req, res) => {
-    res.render('home');
+    res.render('home', {
+        locals: {
+            title: "Dog Project"
+        },
+        partials: {
+            head: '/partials/head',
+            image: '/partials/image'
+        }
+    });
 });
 
 app.get('/dog-list', (req, res) => {
@@ -25,22 +33,32 @@ app.get('/dog-list', (req, res) => {
         locals: {
             dogs: db,
             path: req.path,
+            title: "List of Dogs"
         },
+        partials: {
+            head: '/partials/head'
+        }
     });
 });
 
-app.get('/dog-list/:name', (req, res) => {
+app.get('/dog-list/:name', async (req, res) => {
     console.log(req.path);
-    const {name} = req.params;
+    const { name } = req.params;
     console.log(name);
     const dog = db.find((thisDog) => thisDog.name === name);
     if (dog) {
         console.log(dog);
         res.render('dog.html', {
             locals: {
-                dog
-            }
+                dog,
+                title: 'Dog Profile'
+            },
+            partials: {
+                head: '/partials/head',
+                images: '/partials/image'
+            },
         });
+
     } else {
         res.status(404)
             .send(`No dog found with name '${name}'`);
